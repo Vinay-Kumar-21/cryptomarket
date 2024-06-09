@@ -49,7 +49,9 @@ function Navbar() {
                     <option value='eur'>EUR</option>
                     <option value='inr'>INR</option>
                 </select>
-                <button className='flex items-center gap-2.5 font-medium border-none cursor-pointer'>Sign up <img src={arrow} className='flex' /></button>
+                <Link to='/signup'>
+                    <button className='flex items-center gap-2.5 font-medium border-none cursor-pointer'>Sign up <img src={arrow} className='flex' /></button>
+                </Link>
             </div>
         </div>
     )

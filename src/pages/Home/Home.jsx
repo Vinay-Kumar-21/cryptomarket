@@ -55,7 +55,7 @@ function Home() {
                     <p className='text-right market-cap'>Market Cap</p>
                 </div>
                 {
-                    displayCoin.slice(0, 10).map((item, index) => (
+                    displayCoin.slice(0, 25).map((item, index) => (
                         <Link to={`/coin/${item.id}`} className="table-layout grid items-center" key={index}>
                             <p>{item.market_cap_rank}</p>
                             <div className='flex items-center gap-2.5'>
