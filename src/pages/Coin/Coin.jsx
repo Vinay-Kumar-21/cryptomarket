@@ -3,6 +3,8 @@ import './Coin.css'
 import { useParams } from 'react-router'
 import { CoinContext } from '../../context/CoinContext'
 import LineChart from '../../components/LineChart/LineChart';
+import { Link } from 'react-router-dom';
+import Buy from './Buy';
 
 function Coin() {
 
@@ -11,6 +13,7 @@ function Coin() {
     const [coinData, setCoinData] = useState();
     const [historicalData, setHistoricalData] = useState();
     const { currency } = useContext(CoinContext);
+    const [buyPopup, setBuyPopup] = useState(false);
 
     const fetchCoinData = async () => {
         const options = {
@@ -34,6 +37,10 @@ function Coin() {
             .then(response => response.json())
             .then(response => setHistoricalData(response))
             .catch(err => console.error(err));
+    }
+
+    const handleBuyPopup = () => {
+        setBuyPopup(!buyPopup);
     }
 
     useEffect(() => {
@@ -74,6 +81,19 @@ function Coin() {
                         <li>24 Hour Low</li>
                         <li>{currency.symbol} {coinData.market_data.low_24h[currency.name].toLocaleString()}</li>
                     </ul>
+                </div>
+                <div className='flex justify-center gap-10 mt-4'>
+                    <div className='buy'>
+
+                        <button className='rounded-3xl bg-white text-black gap-2.5 font-bold' onClick={handleBuyPopup}>BUY</button>
+                        <Buy handleBuyPopup={handleBuyPopup} buyPopup={buyPopup} coinName={coinData.name} />
+
+
+                    </div>
+                    <div className='sell'>
+                        <button className='rounded-3xl bg-white text-black gap-2.5 font-bold'>SELL</button>
+                    </div>
+
                 </div>
             </div>
         )

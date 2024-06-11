@@ -5,6 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 import Coin from './pages/Coin/Coin';
 import Home from './pages/Home/Home';
 import Signup from './pages/Signup/Signup';
+import Buy from './pages/Coin/Buy';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path='/' element={<Home />}></Route>
           <Route path='/coin/:coinId' element={<Coin />}></Route>
           <Route path='/signup' element={<Signup />}></Route>
+
         </Routes>
       </div>
     </>

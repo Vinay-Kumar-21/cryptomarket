@@ -59,3 +59,19 @@
 .coin-info ul li:last-child {
     font-weight: 300;
 }
+
+.buy button {
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-size: 15px;
+    color: #393939;
+    background: white;
+}
+
+.sell button {
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-size: 15px;
+    color: #393939;
+    background: white;
+}
