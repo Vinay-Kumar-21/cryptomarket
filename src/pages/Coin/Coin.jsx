@@ -86,7 +86,7 @@ function Coin() {
                     <div className='buy'>
 
                         <button className='rounded-3xl bg-white text-black gap-2.5 font-bold' onClick={handleBuyPopup}>BUY</button>
-                        <Buy handleBuyPopup={handleBuyPopup} buyPopup={buyPopup} coinName={coinData.name} />
+                        <Buy handleBuyPopup={handleBuyPopup} buyPopup={buyPopup} coinName={coinData.name} coinSymbol={coinData.symbol} cp={coinData.market_data.current_price[currency.name]} coinImage={coinData.image.large} />
 
 
                     </div>
