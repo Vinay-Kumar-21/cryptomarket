@@ -5,6 +5,7 @@ import { CoinContext } from '../../context/CoinContext'
 import LineChart from '../../components/LineChart/LineChart';
 import { Link } from 'react-router-dom';
 import Buy from './Buy';
+import Sell from './Sell';
 
 function Coin() {
 
@@ -14,6 +15,7 @@ function Coin() {
     const [historicalData, setHistoricalData] = useState();
     const { currency } = useContext(CoinContext);
     const [buyPopup, setBuyPopup] = useState(false);
+    const [sellPopup, setSellPopup] = useState(false);
 
     const fetchCoinData = async () => {
         const options = {
@@ -41,6 +43,10 @@ function Coin() {
 
     const handleBuyPopup = () => {
         setBuyPopup(!buyPopup);
+    }
+
+    const handleSellPopup = () => {
+        setSellPopup(!sellPopup);
     }
 
     useEffect(() => {
@@ -91,7 +97,8 @@ function Coin() {
 
                     </div>
                     <div className='sell'>
-                        <button className='rounded-3xl bg-white text-black gap-2.5 font-bold'>SELL</button>
+                        <button className='rounded-3xl bg-white text-black gap-2.5 font-bold' onClick={handleSellPopup}>SELL</button>
+                        <Sell handleSellPopup={handleSellPopup} sellPopup={sellPopup} coinName={coinData.name} coinSymbol={coinData.symbol} cp={coinData.market_data.current_price[currency.name]} coinImage={coinData.image.large} />
                     </div>
 
                 </div>
